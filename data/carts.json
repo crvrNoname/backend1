@@ -1,27 +1,26 @@
 [
   {
-    "id": "01",
-    "products": [
-      {
-        "id": "10",
-        "quantity": 12
-      },
-      {
-        "id": "12",
-        "quantity": 12
-      },
-      {
-        "id": "12asdad",
-        "quantity": 12
-      }
-    ]
+    "id": "90a0ad18-5785-4ab8-8367-5137a30a3add",
+    "products": []
   },
   {
-    "id": "02",
+    "id": "02ed46f8-2c83-45b9-848f-59ca6be279b4",
     "products": [
       {
-        "id": "1",
+        "id": "2",
         "quantity": 12
+      },
+      {
+        "id": "5",
+        "quantity": 12
+      },
+      {
+        "id": "10",
+        "quantity": 6
+      },
+      {
+        "id": "7",
+        "quantity": 7
       }
     ]
   }

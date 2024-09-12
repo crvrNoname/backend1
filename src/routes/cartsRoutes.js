@@ -7,9 +7,22 @@ router.get('/:id',async (req,res)=>{
     const {id} = req.params
     const data = await fs.promises.readFile('data/carts.json','utf-8')
     const carts = JSON.parse(data)
-    const product = carts.find(cart => cart.id === id)
+    const cart = carts.find(cart => cart.id === id)
    
-    res.status(200).json(product)
+    res.status(200).json(cart)
+})
+
+router.post('/',async (req,res)=>{    
+    const data = await fs.promises.readFile('data/carts.json','utf-8')
+    const carts = JSON.parse(data)
+    
+    const newcart={
+        id:crypto.randomUUID(),
+        products:[]
+    }
+    carts.push(newcart)
+    await fs.promises.writeFile('data/carts.json',JSON.stringify(carts,null,2))
+    res.json({messge:"Carrito creado exitosamente"})
 })
 
 router.post('/:cid/product/:pid',async (req,res)=>{
@@ -17,13 +30,14 @@ router.post('/:cid/product/:pid',async (req,res)=>{
     const {quantity} = req.body
     const data = await fs.promises.readFile('data/carts.json','utf-8')
     const carts = JSON.parse(data)
+    
     const newCarts = carts.map(cart => {
         if(cart.id == cid){
             const index = cart.products.findIndex(product => product.id === pid)
             if(index === -1){
                 cart.products.push({id:pid,quantity})
             }else{
-                cart.product[index]={id:pid,quantity:cart.products[index].quantity + quantity}
+                cart.products[index]={id:pid,quantity:cart.products[index].quantity + quantity}
             }
             return cart
         }
