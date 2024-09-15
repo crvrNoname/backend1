@@ -180,5 +180,11 @@
       "images/papaya1.png",
       "images/papaya2.png"
     ]
+  },
+  {
+    "id": "f702ab44-f1b5-4b7e-b928-3cba3148e9f8",
+    "title": "A1",
+    "price": "200",
+    "stock": "400"
   }
 ]
